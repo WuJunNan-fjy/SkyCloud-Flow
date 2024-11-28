@@ -37,6 +37,14 @@ import DictTag from '@/components/DictTag'
 import VueMeta from 'vue-meta'
 // 字典数据组件
 import DictData from '@/components/DictData'
+// bpmnProcessDesigner 需要引入
+import MyPD from "@/components/bpmnProcessDesigner/package/index.js";
+Vue.use(MyPD);
+import "@/components/bpmnProcessDesigner/package/theme/index.scss";
+import "bpmn-js/dist/assets/diagram-js.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
 
 // 全局方法挂载
 Vue.prototype.getDicts = getDicts
@@ -57,6 +65,15 @@ Vue.component('Editor', Editor)
 Vue.component('FileUpload', FileUpload)
 Vue.component('ImageUpload', ImageUpload)
 Vue.component('ImagePreview', ImagePreview)
+
+//全局安装vxe-table
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/style.css'
+import VXETablePluginElement from 'vxe-table-plugin-element'
+import 'vxe-table-plugin-element/dist/style.css'
+
+Vue.use(VXETable)
+VXETable.use(VXETablePluginElement)
 
 Vue.use(directive)
 Vue.use(plugins)

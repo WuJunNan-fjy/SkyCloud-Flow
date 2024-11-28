@@ -61,6 +61,25 @@ export const constantRoutes = [
     component: () => import('@/views/error/401'),
     hidden: true
   },
+  // {
+  //   path: '/flow',
+  //   component: Layout,
+  //   hidden: true,
+  //   children: [{
+  //     path: 'manager/model/design',
+  //     component: () => import(['@/views/flow/design/modelEditor']),
+  //     name: 'BpmModelEditor',
+  //     meta: {title: '设计流程', activeMenu: '/flow/manager/model'}
+  //   },
+  //   ]
+  // },
+  {
+    path: '/flow/design/model',
+    component: () => import('@/views/flow/design/modelEditor'),
+    meta: {title: '设计流程', activeMenu: '/flow/design/model'},
+    name: 'BpmModelEditor',
+    hidden: true
+  },
   {
     path: '',
     component: Layout,

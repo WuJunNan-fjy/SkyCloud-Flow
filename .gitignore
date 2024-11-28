@@ -45,3 +45,13 @@ nbdist/
 !*/build/*.java
 !*/build/*.html
 !*/build/*.xml
+
+
+*target*
+*.iml
+/target/
+/bin/
+.classpath
+.gitignore
+.project
+.settings/
