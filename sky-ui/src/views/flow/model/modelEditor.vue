@@ -136,7 +136,7 @@ export default {
   }
 }
 
-// TODO 芋艿：去掉多余的 faq
+// TODO wjn：去掉多余的 faq
 //.info-tip {
 //  position: fixed;
 //  top: 40px;

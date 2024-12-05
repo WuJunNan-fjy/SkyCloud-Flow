@@ -18,15 +18,25 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  */
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 {
+    /**
+     * 时区 - 默认
+     */
+    public static final String TIME_ZONE_DEFAULT = "GMT+8";
+
+    /**
+     * 秒转换成毫秒
+     */
+    public static final long SECOND_MILLIS = 1000;
+
     public static String YYYY = "yyyy";
 
     public static String YYYY_MM = "yyyy-MM";
 
-    public static String YYYY_MM_DD = "yyyy-MM-dd";
-
     public static String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 
-    public static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
+    public static final String FORMAT_YEAR_MONTH_DAY = "yyyy-MM-dd";
+
+    public static final String FORMAT_YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 
     private static String[] parsePatterns = {
             "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM",
@@ -50,12 +60,12 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
      */
     public static String getDate()
     {
-        return dateTimeNow(YYYY_MM_DD);
+        return dateTimeNow(FORMAT_YEAR_MONTH_DAY);
     }
 
     public static final String getTime()
     {
-        return dateTimeNow(YYYY_MM_DD_HH_MM_SS);
+        return dateTimeNow(FORMAT_YYYY_MM_DD_HH_MM_SS);
     }
 
     public static final String dateTimeNow()
@@ -70,7 +80,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 
     public static final String dateTime(final Date date)
     {
-        return parseDateToStr(YYYY_MM_DD, date);
+        return parseDateToStr(FORMAT_YEAR_MONTH_DAY, date);
     }
 
     public static final String parseDateToStr(final String format, final Date date)

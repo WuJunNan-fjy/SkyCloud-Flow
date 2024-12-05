@@ -1,4 +1,4 @@
-
+import request from '@/utils/request'
 
 /**
  * 通用js方法封装处理
@@ -231,3 +231,14 @@ export function tansParams(params) {
 export function blobValidate(data) {
   return data.type !== 'application/json'
 }
+
+
+/** 获取主键 */
+export function handleGetSnowFlakeId() {
+  return request({
+    url: '/common/getSnowFlakeId',
+    method: 'get',
+    params: {}
+  })
+}
+

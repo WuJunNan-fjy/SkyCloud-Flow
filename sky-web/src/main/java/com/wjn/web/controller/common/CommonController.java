@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.wjn.common.utils.SnowFlake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -159,5 +161,14 @@ public class CommonController
         {
             log.error("下载文件失败", e);
         }
+    }
+
+    /**
+     * 获取雪花id
+     */
+    @GetMapping("/getSnowFlakeId")
+    public AjaxResult getSnowFlakeId()
+    {
+        return AjaxResult.success((Object)(SnowFlake.getId()+""));
     }
 }

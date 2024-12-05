@@ -75,7 +75,7 @@ export const constantRoutes = [
   // },
   {
     path: '/flow/design/model',
-    component: () => import('@/views/flow/design/modelEditor'),
+    component: () => import('@/views/flow/model/modelEditor'),
     meta: {title: '设计流程', activeMenu: '/flow/design/model'},
     name: 'BpmModelEditor',
     hidden: true

@@ -6,7 +6,7 @@ import com.wjn.common.utils.DateUtils;
 
 /**
  * JVM相关信息
- * 
+ *
  * @author wjn
  */
 public class Jvm
@@ -109,7 +109,7 @@ public class Jvm
      */
     public String getStartTime()
     {
-        return DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD_HH_MM_SS, DateUtils.getServerStartDate());
+        return DateUtils.parseDateToStr(DateUtils.FORMAT_YYYY_MM_DD_HH_MM_SS, DateUtils.getServerStartDate());
     }
 
     /**

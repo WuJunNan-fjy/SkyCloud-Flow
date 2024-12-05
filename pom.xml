@@ -34,6 +34,13 @@
         <logback.version>1.2.13</logback.version>
         <spring-security.version>5.7.12</spring-security.version>
         <spring-framework.version>5.3.39</spring-framework.version>
+        <flowable.version>6.8.0</flowable.version>
+        <knife4j.openapi3.version>4.1.0</knife4j.openapi3.version>
+        <mapstruct.version>1.6.2</mapstruct.version>
+        <hutool.version>5.8.32</hutool.version>
+        <guava.version>33.2.1-jre</guava.version>
+        <mybatis-plus.version>3.5.7</mybatis-plus.version> <!-- MyBatis Plus 3.5.8 需要最低 JDK11 版本，无法升级 -->
+        <easy-trans.version>3.0.6</easy-trans.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -182,6 +189,90 @@
                 <version>${kaptcha.version}</version>
             </dependency>
 
+            <!--添加knife4j-可视化接口文档-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j.openapi3.version}</version>
+            </dependency>
+
+            <!--mapstruct对象转换-->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId> <!-- use mapstruct-jdk8 for Java 8 or higher -->
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <!--工具包-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!--工具-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!--mybatis-plus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- VO 数据翻译 -->
+            <dependency>
+                <groupId>com.fhs-opensource</groupId>
+                <artifactId>easy-trans-spring-boot-starter</artifactId>
+                <version>${easy-trans.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-commons</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.fhs-opensource</groupId>
+                <artifactId>easy-trans-mybatis-plus-extend</artifactId>
+                <version>${easy-trans.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fhs-opensource</groupId>
+                <artifactId>easy-trans-anno</artifactId>
+                <version>${easy-trans.version}</version>
+            </dependency>
+
+            <!-- 工作流相关 -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-process</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-actuator</artifactId>
+                <version>${flowable.version}</version>
+            </dependency>
+
             <!-- 定时任务-->
             <dependency>
                 <groupId>com.wjn</groupId>
@@ -217,6 +308,13 @@
                 <version>${wjn.version}</version>
             </dependency>
 
+            <!--流程信息-->
+            <dependency>
+                <groupId>com.wjn</groupId>
+                <artifactId>sky-flow</artifactId>
+                <version>${wjn.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -227,6 +325,7 @@
         <module>sky-quartz</module>
         <module>sky-generator</module>
         <module>sky-common</module>
+        <module>sky-flow</module>
     </modules>
     <packaging>pom</packaging>
 
