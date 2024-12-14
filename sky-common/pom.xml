@@ -153,37 +153,31 @@
             <artifactId>guava</artifactId>
         </dependency>
 
-        <!--mybatis-plus-->
+        <!--mybatis-->
+<!--        &lt;!&ndash; 实现对 MyBatis 的自动化配置 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>${mybatis.spring}</version>-->
+<!--        </dependency>-->
+
+        <!-- MyBatis 核心库 -->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
         </dependency>
 
-        <!-- VO 数据翻译 -->
+        <!-- 实现对 Mapper 的自动化配置-->
         <dependency>
-            <groupId>com.fhs-opensource</groupId>
-            <artifactId>easy-trans-spring-boot-starter</artifactId>
-            <version>${easy-trans.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-context</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-commons</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${mapper.mybatis}</version>
         </dependency>
+
         <dependency>
-            <groupId>com.fhs-opensource</groupId>
-            <artifactId>easy-trans-mybatis-plus-extend</artifactId>
-            <version>${easy-trans.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fhs-opensource</groupId>
-            <artifactId>easy-trans-anno</artifactId>
-            <version>${easy-trans.version}</version>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
         </dependency>
     </dependencies>
 

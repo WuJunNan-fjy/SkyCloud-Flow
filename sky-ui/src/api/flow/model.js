@@ -1,8 +1,8 @@
 import request from '@/utils/request'
 
-export function getModelPage(query) {
+export function getModelList(query) {
   return request({
-    url: '/flow/model/page',
+    url: '/flow/model/list',
     method: 'get',
     params: query
   })

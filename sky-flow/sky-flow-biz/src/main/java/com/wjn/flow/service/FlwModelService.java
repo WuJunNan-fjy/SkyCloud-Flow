@@ -1,5 +1,7 @@
 package com.wjn.flow.service;
 
+import com.wjn.common.core.page.TableDataInfo;
+import com.wjn.flow.domin.vo.model.BpmModelPageReqVO;
 import com.wjn.flow.domin.vo.model.BpmModelSaveReqVO;
 
 /**
@@ -8,7 +10,16 @@ import com.wjn.flow.domin.vo.model.BpmModelSaveReqVO;
  * @create: 2024-12-04 15:56
  * @version:v1.0
  */
-public interface FlowModelService {
+public interface FlwModelService {
+
+    /**
+     * 功能描述: 获取流程模型列表
+     * @author wjn
+     * @create 2024/12/5 星期四 14:36
+     * @param: []
+     * @return java.lang.String
+     */
+    TableDataInfo list(BpmModelPageReqVO pageReqVO);
 
     /**
      * 功能描述: 新建流程模型

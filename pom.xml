@@ -39,8 +39,11 @@
         <mapstruct.version>1.6.2</mapstruct.version>
         <hutool.version>5.8.32</hutool.version>
         <guava.version>33.2.1-jre</guava.version>
-        <mybatis-plus.version>3.5.7</mybatis-plus.version> <!-- MyBatis Plus 3.5.8 需要最低 JDK11 版本，无法升级 -->
+        <mybatis.spring>3.5.16</mybatis.spring>
+        <mapper.mybatis>2.1.5</mapper.mybatis>
         <easy-trans.version>3.0.6</easy-trans.version>
+        <wjn-flow.version>1.0.0</wjn-flow.version>
+        <sky.version>3.8.8</sky.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -227,38 +230,18 @@
                 <version>${guava.version}</version>
             </dependency>
 
-            <!--mybatis-plus-->
+            <!-- 实现对 MyBatis 的自动化配置 -->
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.spring}</version> <!-- 或者你项目中使用的版本 -->
             </dependency>
 
-            <!-- VO 数据翻译 -->
+            <!-- 实现对 Mapper 的自动化配置-->
             <dependency>
-                <groupId>com.fhs-opensource</groupId>
-                <artifactId>easy-trans-spring-boot-starter</artifactId>
-                <version>${easy-trans.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring-context</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.springframework.cloud</groupId>
-                        <artifactId>spring-cloud-commons</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.fhs-opensource</groupId>
-                <artifactId>easy-trans-mybatis-plus-extend</artifactId>
-                <version>${easy-trans.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fhs-opensource</groupId>
-                <artifactId>easy-trans-anno</artifactId>
-                <version>${easy-trans.version}</version>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mapper.mybatis}</version>
             </dependency>
 
             <!-- 工作流相关 -->
@@ -266,11 +249,23 @@
                 <groupId>org.flowable</groupId>
                 <artifactId>flowable-spring-boot-starter-process</artifactId>
                 <version>${flowable.version}</version>
+                <exclusions><!-- 需要排除flowable的mybatis依赖，不然会跟mybatis-plus冲突 -->
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.flowable</groupId>
                 <artifactId>flowable-spring-boot-starter-actuator</artifactId>
                 <version>${flowable.version}</version>
+                <exclusions><!-- 需要排除flowable的mybatis依赖，不然会跟mybatis-plus冲突 -->
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!-- 定时任务-->
@@ -307,14 +302,6 @@
                 <artifactId>sky-common</artifactId>
                 <version>${wjn.version}</version>
             </dependency>
-
-            <!--流程信息-->
-            <dependency>
-                <groupId>com.wjn</groupId>
-                <artifactId>sky-flow</artifactId>
-                <version>${wjn.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -326,6 +313,7 @@
         <module>sky-generator</module>
         <module>sky-common</module>
         <module>sky-flow</module>
+        <module>sky-test</module>
     </modules>
     <packaging>pom</packaging>
 

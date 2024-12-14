@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // 查询流程分类列表
 export function listCategory(query) {
   return request({
-    url: '/flowable/category/list',
+    url: '/flow/category/list',
     method: 'get',
     params: query
   })
@@ -11,7 +11,7 @@ export function listCategory(query) {
 // 查询流程分类列表
 export function dictlistCategory() {
   return request({
-    url: '/flowable/category/dictlist',
+    url: '/flow/category/dictlist',
     method: 'get'
   })
 }
@@ -19,7 +19,7 @@ export function dictlistCategory() {
 // 查询流程分类详细
 export function getCategory(id) {
   return request({
-    url: '/flowable/category/' + id,
+    url: '/flow/category/' + id,
     method: 'get'
   })
 }
@@ -27,7 +27,7 @@ export function getCategory(id) {
 // 新增流程分类
 export function addCategory(data) {
   return request({
-    url: '/flowable/category',
+    url: '/flow/category/create',
     method: 'post',
     data: data
   })
@@ -36,7 +36,7 @@ export function addCategory(data) {
 // 修改流程分类
 export function updateCategory(data) {
   return request({
-    url: '/flowable/category',
+    url: '/flow/category',
     method: 'put',
     data: data
   })
@@ -45,7 +45,7 @@ export function updateCategory(data) {
 // 删除流程分类
 export function delCategory(id) {
   return request({
-    url: '/flowable/category/' + id,
+    url: '/flow/category/' + id,
     method: 'delete'
   })
 }

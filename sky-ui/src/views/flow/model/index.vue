@@ -22,24 +22,23 @@
     </el-form>
 
     <!-- 数据表格 -->
-    <vxe-table ref="vxeTable" keep-source align="center" border resizable show-overflow highlight-hover-row :print-config="{}" :loading="loading" :data="modelList" @checkbox-all="handleSelectionChange" height="100%" @checkbox-change="handleSelectionChange">
+    <vxe-table
+      ref="vxeTable"
+      keep-source
+      align="center"
+      border resizable show-overflow highlight-hover-row :print-config="{}" :loading="loading" :data="modelList"
+      @checkbox-all="handleSelectionChange" height="100%" @checkbox-change="handleSelectionChange">
       <vxe-column type="checkbox" width="50"></vxe-column>
-      <vxe-table-column title="流程名称" align="center" field="procInstName" />
-      <vxe-table-column title="流程图标" align="center" field="procInstIcon" />
-      <vxe-table-column title="可见范围" align="center" field="visibleRange" />
+      <vxe-table-column title="流程名称" align="center" field="name" />
       <vxe-table-column title="流程分类" align="center" field="category" width="120" />
       <vxe-table-column title="表单信息" align="center" field="formInfo" width="120" />
       <vxe-table-column title="最后发布" align="center" field="createTime" width="180">
         <template slot-scope="scope">
-          <span>{{ parseTime(scope.row.createTime) }}</span>
+          <span>{{ parseTime(scope.row.createTime), '{y}-{m}-{d} {h}:{i}' }}</span>
         </template>
       </vxe-table-column>
       <vxe-table-column title="操作" align="center" width="280">
         <template slot-scope="scope">
-          <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)">{{ '修改' }}</el-button>
-          <el-button size="mini" type="text" icon="el-icon-circle-check" @click="handleDataScope(scope.row)">{{ '数据权限' }}</el-button>
-          <el-button size="mini" type="text" icon="el-icon-plus" @click="handleAddRoleUser(scope.row)">{{ '添加人员' }}</el-button>
-          <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)">{{ '删除' }}</el-button>
         </template>
       </vxe-table-column>
     </vxe-table>
@@ -124,7 +123,7 @@
   </div>
 </template>
 <script>
-import { getModel, getModelPage, createModel, updateModel, deleteModel, deployModel, updateModelState } from '@/api/flow/model'
+import { getModel, getModelList, createModel, updateModel, deleteModel, deployModel, updateModelState } from '@/api/flow/model'
 import {handleGetSnowFlakeId} from "@/utils/sky";
 export default {
   name: "FlowModel",
@@ -167,6 +166,7 @@ export default {
   },
   created() {
     // 初始化
+    this.getList()
   },
   methods: {
     // 查询方法
@@ -213,9 +213,10 @@ export default {
     // 获取列表
     getList() {
       console.log('获取列表');
-    },
-    parseTime(time) {
-      return time ? new Date(time).toLocaleString() : '';
+      getModelList(this.queryParams).then(response => {
+        this.modelList = response.rows;
+        this.total = response.total;
+      });
     },
     openModelForm() {
       this.openModel = true;

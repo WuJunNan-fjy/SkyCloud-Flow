@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
+
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -40,6 +42,7 @@ import com.wjn.generator.service.IGenTableService;
  * 
  * @author wjn
  */
+@Slf4j
 @RestController
 @RequestMapping("/tool/gen")
 public class GenController extends BaseController
@@ -152,7 +155,7 @@ public class GenController extends BaseController
         }
         catch (Exception e)
         {
-            logger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
             return AjaxResult.error("创建表结构异常");
         }
     }

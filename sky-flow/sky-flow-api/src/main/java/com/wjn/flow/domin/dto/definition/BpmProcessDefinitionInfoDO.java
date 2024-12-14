@@ -1,11 +1,6 @@
 package com.wjn.flow.domin.dto.definition;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import com.wjn.common.core.mybatis.BaseDO;
-import com.wjn.common.core.mybatis.type.StringListTypeHandler;
+import com.wjn.common.core.domain.BaseEntity;
 import com.wjn.flow.common.enums.definition.BpmModelFormTypeEnum;
 import com.wjn.flow.common.enums.definition.BpmModelTypeEnum;
 import com.wjn.flow.domin.dto.user.AdminUserRespDTO;
@@ -16,6 +11,8 @@ import lombok.NoArgsConstructor;
 import org.flowable.engine.repository.Model;
 import org.flowable.engine.repository.ProcessDefinition;
 
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -24,17 +21,17 @@ import java.util.List;
  *
  * @author wjn
  */
-@TableName(value = "bpm_process_definition_info", autoResultMap = true)
+@Table(name = "bpm_process_definition_info")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BpmProcessDefinitionInfoDO extends BaseDO {
+public class BpmProcessDefinitionInfoDO extends BaseEntity {
 
     /**
      * 编号
      */
-    @TableId
+    @Id
     private Long id;
     /**
      * 流程定义的编号
@@ -93,7 +90,7 @@ public class BpmProcessDefinitionInfoDO extends BaseDO {
      *
      * 冗余 {@link BpmFormDO#getFields()}
      */
-    @TableField(typeHandler = JacksonTypeHandler.class)
+    // @TableField("formFields")
     private List<String> formFields;
     /**
      * 自定义表单的提交路径，使用 Vue 的路由地址
@@ -132,7 +129,7 @@ public class BpmProcessDefinitionInfoDO extends BaseDO {
      * 1. {@link #visible} 只是决定是否可见。即使不可见，还是可以发起
      * 2. startUserIds 决定某个用户是否可以发起。如果该用户不可发起，则他也是不可见的
      */
-    @TableField(typeHandler = StringListTypeHandler.class) // 为了可以使用 find_in_set 进行过滤
+    // @TableField("startUserIds") // 为了可以使用 find_in_set 进行过滤
     private List<Long> startUserIds;
 
     /**
@@ -140,7 +137,7 @@ public class BpmProcessDefinitionInfoDO extends BaseDO {
      *
      * 关联 {@link AdminUserRespDTO#getId()} 字段的数组
      */
-    @TableField(typeHandler = StringListTypeHandler.class) // 为了可以使用 find_in_set 进行过滤
+    // @TableField("managerUserIds") // 为了可以使用 find_in_set 进行过滤
     private List<Long> managerUserIds;
 
 }

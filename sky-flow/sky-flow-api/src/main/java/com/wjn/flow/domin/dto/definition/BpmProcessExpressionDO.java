@@ -1,28 +1,29 @@
 package com.wjn.flow.domin.dto.definition;
 
-import com.baomidou.mybatisplus.annotation.*;
-import com.wjn.common.core.mybatis.BaseDO;
+import com.wjn.common.core.domain.BaseEntity;
 import lombok.*;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * BPM 流程表达式 DO
  *
  * @author wjn
  */
-@TableName("bpm_process_expression")
-@KeySequence("bpm_process_expression_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
+@Table(name = "bpm_process_expression")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BpmProcessExpressionDO extends BaseDO {
+public class BpmProcessExpressionDO extends BaseEntity {
 
     /**
      * 编号
      */
-    @TableId
+    @Id
     private Long id;
     /**
      * 表达式名字

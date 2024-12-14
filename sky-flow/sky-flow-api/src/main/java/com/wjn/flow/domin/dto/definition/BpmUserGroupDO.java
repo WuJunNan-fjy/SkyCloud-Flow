@@ -1,15 +1,14 @@
 package com.wjn.flow.domin.dto.definition;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import com.wjn.common.core.mybatis.BaseDO;
+import com.wjn.common.core.domain.BaseEntity;
 import com.wjn.common.enums.CommonStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Set;
 
 /**
@@ -17,17 +16,17 @@ import java.util.Set;
  *
  * @author wjn
  */
-@TableName(value = "bpm_user_group", autoResultMap = true)
+@Table(name = "bpm_user_group")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BpmUserGroupDO extends BaseDO {
+public class BpmUserGroupDO extends BaseEntity {
 
     /**
      * 编号，自增
      */
-    @TableId
+    @Id
     private Long id;
     /**
      * 组名
@@ -46,7 +45,7 @@ public class BpmUserGroupDO extends BaseDO {
     /**
      * 成员用户编号数组
      */
-    @TableField(typeHandler = JacksonTypeHandler.class)
+    // @TableField("userIds")
     private Set<Long> userIds;
 
 }

@@ -1,5 +1,6 @@
 package com.wjn.common.core.domain;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Entity基类
- * 
+ *
  * @author wjn
  */
 public class BaseEntity implements Serializable
@@ -19,21 +20,35 @@ public class BaseEntity implements Serializable
 
     /** 搜索值 */
     @JsonIgnore
+    @Transient
     private String searchValue;
 
     /** 创建者 */
+    @Transient
     private String createBy;
 
     /** 创建时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Transient
     private Date createTime;
 
     /** 更新者 */
+    @Transient
     private String updateBy;
 
     /** 更新时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Transient
     private Date updateTime;
+
+    /** 用户ID */
+    @Transient
+    private Long userId;
+
+    /** 部门ID */
+    @Transient
+    private Long deptId;
+
 
     /** 备注 */
     private String remark;
@@ -100,6 +115,22 @@ public class BaseEntity implements Serializable
     public void setRemark(String remark)
     {
         this.remark = remark;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
     }
 
     public Map<String, Object> getParams()

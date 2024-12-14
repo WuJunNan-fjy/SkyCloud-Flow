@@ -1,12 +1,13 @@
 package com.wjn.flow.domin.dto.definition;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.wjn.common.core.mybatis.BaseDO;
+import com.wjn.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * BPM 流程监听器 DO
@@ -15,17 +16,17 @@ import lombok.NoArgsConstructor;
  *
  * @author wjn
  */
-@TableName(value = "bpm_process_listener")
+@Table(name = "bpm_process_listener")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BpmProcessListenerDO extends BaseDO {
+public class BpmProcessListenerDO extends BaseEntity {
 
     /**
      * 主键 ID，自增
      */
-    @TableId
+    @Id
     private Long id;
     /**
      * 监听器名字

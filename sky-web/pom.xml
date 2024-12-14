@@ -60,9 +60,30 @@
             <groupId>com.wjn</groupId>
             <artifactId>sky-generator</artifactId>
         </dependency>
+
+        <!--公共包-->
         <dependency>
             <groupId>com.wjn</groupId>
             <artifactId>sky-common</artifactId>
+        </dependency>
+
+        <!--flowable流程-->
+        <dependency>
+            <groupId>com.wjn.flow</groupId>
+            <artifactId>sky-flow-api</artifactId>
+            <version>${wjn-flow.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wjn.flow</groupId>
+            <artifactId>sky-flow-biz</artifactId>
+            <version>${wjn-flow.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wjn</groupId>
+            <artifactId>sky-test</artifactId>
+            <version>${sky.version}</version>
         </dependency>
 
     </dependencies>

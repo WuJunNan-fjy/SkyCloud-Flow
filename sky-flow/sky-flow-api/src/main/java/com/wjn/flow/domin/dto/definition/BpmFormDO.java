@@ -1,14 +1,13 @@
 package com.wjn.flow.domin.dto.definition;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import com.wjn.common.core.mybatis.BaseDO;
+import com.wjn.common.annotation.TableField;
+import com.wjn.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -17,17 +16,17 @@ import java.util.List;
  *
  * @author wjn
  */
-@TableName(value = "bpm_form", autoResultMap = true)
+@Table(name = "bpm_form")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BpmFormDO extends BaseDO {
+public class BpmFormDO extends BaseEntity {
 
     /**
      * 编号
      */
-    @TableId
+    @Id
     private Long id;
     /**
      * 表单名
@@ -47,7 +46,6 @@ public class BpmFormDO extends BaseDO {
      * 目前直接将 https://github.com/JakHuang/form-generator 生成的 JSON 串，直接保存
      * 定义：https://github.com/JakHuang/form-generator/issues/46
      */
-    @TableField(typeHandler = JacksonTypeHandler.class)
     private List<String> fields;
     /**
      * 备注

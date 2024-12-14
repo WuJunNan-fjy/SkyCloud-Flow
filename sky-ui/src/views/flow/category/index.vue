@@ -134,7 +134,7 @@ export default {
       //修改或新增add、update
       etype: '',
       // 遮罩层
-      loading: true,
+      loading: false,
       // 选中数组
       ids: [],
       //表单禁用
@@ -179,7 +179,7 @@ export default {
     };
   },
   created() {
-    this.getList();
+    // this.getList();
   },
   watch: {},
   methods: {
@@ -217,9 +217,6 @@ export default {
       };
       this.resetForm("form");
     },
-    closedfunc() {
-      this.reset();
-    },
     /** 搜索按钮操作 */
     handleQuery() {
       this.queryParams.pageNum = 1;
@@ -241,15 +238,6 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    //返回附件列表
-    loadSuccess(e) {
-      var arr = [];
-      for (var obj of e) {
-        arr.push(obj.fileid);
-      }
-      this.form.file = arr.join(',');
-    },
-
     /** 新增按钮操作 */
     handleAdd() {
       this.formDisabled = false;
@@ -260,7 +248,6 @@ export default {
     },
     /** 修改按钮操作 */
     handleUpdate(row, bool) {
-
       this.formDisabled = bool;
       this.etype = 'update';
       this.reset();
@@ -279,25 +266,23 @@ export default {
     },
     /** 提交按钮 */
     async submitForm() {
-      this.verifyForm(this.$refs["form"].validate, () => {
-        return new Promise((resolve) => {
+      this.$refs['form'].validate(valid => {
+        if (valid) {
           if (this.etype != 'add') {
             updateCategory(this.form).then(response => {
               this.msgSuccess("修改成功");
               this.open = false;
-              this.getList();
-              resolve(true);
+              // this.getList();
             });
           } else {
             addCategory(this.form).then(response => {
               this.msgSuccess("新增成功");
               this.open = false;
               this.etype = 'update';
-              this.getList();
-              resolve(true);
+              // this.getList();
             });
           }
-        })
+        }
       }).then(async (res) => {
         if (res) {
           this.etype = 'update'
