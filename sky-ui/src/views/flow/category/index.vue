@@ -49,7 +49,7 @@
     </vxe-toolbar>
     <div class="categoryTable">
       <vxe-table ref="vxeTable" keep-source align="center" border resizable show-overflow highlight-hover-row
-                 :print-config="{}" :loading="loading" :data="categoryList" height="100%"
+                 :print-config="{}" :loading="loading" :data="categoryList" height="530px"
                  :checkbox-config="{checkMethod: checkSelectable, highlight: true}" @checkbox-all="handleSelectionChange"
                  @checkbox-change="handleSelectionChange">
         <vxe-column type="checkbox" width="50"></vxe-column>
@@ -179,7 +179,7 @@ export default {
     };
   },
   created() {
-    // this.getList();
+    this.getList();
   },
   watch: {},
   methods: {
@@ -254,7 +254,6 @@ export default {
       const id = row.id || this.ids
       getCategory(id).then(response => {
         let data = response.data;
-        data.file = ''; //附件必传校验字段
         this.form = data;
         let title = "修改流程分类";
         if (bool) {
@@ -272,28 +271,18 @@ export default {
             updateCategory(this.form).then(response => {
               this.msgSuccess("修改成功");
               this.open = false;
-              // this.getList();
+              this.getList();
             });
           } else {
-            addCategory(this.form).then(response => {
+            const res = addCategory(this.form).then(response => {
               this.msgSuccess("新增成功");
               this.open = false;
               this.etype = 'update';
-              // this.getList();
+              this.getList();
             });
           }
         }
-      }).then(async (res) => {
-        if (res) {
-          this.etype = 'update'
-          this.$refs.indexSub.submitForm().then(bool => {
-            //保存子表
-            if (bool) {
-              this.open = false;
-            }
-          });
-        }
-      });
+      })
     },
 
     /** 删除按钮操作 */
@@ -314,8 +303,7 @@ export default {
     //复选框禁用
     checkSelectable(e) {
       let row = e.row;
-      //根据字段值判断是否禁用复选框
-      return (row.remark != '' && row.remark != '1');
+      return row.id != null;
     },
 
   }

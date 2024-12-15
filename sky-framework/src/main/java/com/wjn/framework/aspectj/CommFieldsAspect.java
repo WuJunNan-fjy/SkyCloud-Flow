@@ -42,12 +42,12 @@ public class CommFieldsAspect {
             //System.out.println("注入的方法名称是："+methodName);
             if(arg instanceof BaseEntity) {
                 BaseEntity baseentity = (BaseEntity) arg;
-                if(methodName.contains("add")){
+                if(methodName.contains("add") || methodName.contains("create")){
                     baseentity.setCreateBy(user.getNickName());
                     baseentity.setCreateTime(DateUtils.getNowDate());
                     baseentity.setUserId(user.getUserId());
                     baseentity.setDeptId(user.getDeptId());
-                }else if(methodName.contains("edit")){
+                }else if(methodName.contains("edit") || methodName.contains("update")){
                     baseentity.setUpdateBy(user.getNickName());
                     baseentity.setUpdateTime(DateUtils.getNowDate());
                 }

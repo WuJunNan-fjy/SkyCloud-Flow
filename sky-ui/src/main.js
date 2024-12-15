@@ -102,3 +102,38 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+Vue.prototype.msgSuccess = function(msg) {
+  this.$message({
+    showClose: true,
+    message: msg,
+    type: "success"
+  });
+}
+
+Vue.prototype.msgError = function(msg) {
+  this.$message({
+    showClose: true,
+    message: msg,
+    type: "error"
+  });
+}
+
+Vue.prototype.msg = function(response,...msg) {
+  let type = "error";
+  let message = response.msg;
+  if(response.code == 200){
+    type = "success";
+  }
+  if(msg.length>0){
+    message = msg[0];
+  }
+  this.$message({
+    showClose: true,
+    message: message,
+    type: type
+  });
+}
+Vue.prototype.msgInfo = function(msg) {
+  this.$message.info(msg);
+}

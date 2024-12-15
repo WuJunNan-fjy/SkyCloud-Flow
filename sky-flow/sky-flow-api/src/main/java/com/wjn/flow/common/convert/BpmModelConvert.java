@@ -3,17 +3,16 @@ package com.wjn.flow.common.convert;
 import com.wjn.common.utils.StringUtils;
 import com.wjn.common.utils.bean.BeanUtils;
 import com.wjn.common.utils.json.JsonUtils;
-import com.wjn.flow.domin.vo.model.BpmModelMetaInfoVO;
-import com.wjn.flow.domin.vo.model.BpmModelPageReqVO;
-import com.wjn.flow.domin.vo.model.BpmModelRespVO;
-import com.wjn.flow.domin.vo.model.BpmModelSaveReqVO;
+import com.wjn.flow.domain.vo.model.BpmModelMetaInfoVO;
+import com.wjn.flow.domain.vo.model.BpmModelPageReqVO;
+import com.wjn.flow.domain.vo.model.BpmModelRespVO;
+import com.wjn.flow.domain.vo.model.BpmModelSaveReqVO;
 import org.flowable.engine.repository.Model;
 import org.flowable.engine.repository.ModelQuery;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 

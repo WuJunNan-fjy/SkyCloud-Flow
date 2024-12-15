@@ -35,7 +35,7 @@ public class SysLogininforController extends BaseController
     @Autowired
     private SysPasswordService passwordService;
 
-    @PreAuthorize("@ss.hasPermi('monitor:logininfor:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:logininfor:list')")
     @GetMapping("/list")
     public TableDataInfo list(SysLogininfor logininfor)
     {
@@ -45,7 +45,7 @@ public class SysLogininforController extends BaseController
     }
 
     @Log(title = "登录日志", businessType = BusinessType.EXPORT)
-    @PreAuthorize("@ss.hasPermi('monitor:logininfor:export')")
+    @PreAuthorize("@ss.hasPermission('monitor:logininfor:export')")
     @PostMapping("/export")
     public void export(HttpServletResponse response, SysLogininfor logininfor)
     {

@@ -1,10 +1,9 @@
 package com.wjn.flow.service;
 
 import com.wjn.common.core.service.BaseService;
-import com.wjn.flow.domin.dto.definition.FlwCategoryDO;
-import com.wjn.flow.domin.vo.category.FlwCategoryPageReqVO;
-import com.wjn.flow.domin.vo.category.FlwCategoryRespVO;
-import com.wjn.flow.domin.vo.category.FlwCategorySaveReqVO;
+import com.wjn.flow.domain.dto.definition.FlwCategoryDO;
+import com.wjn.flow.domain.vo.category.FlwCategoryPageReqVO;
+import com.wjn.flow.domain.vo.category.FlwCategorySaveReqVO;
 import java.util.List;
 
 /**
@@ -37,10 +36,10 @@ public interface FlwCategoryService extends BaseService<FlwCategoryDO> {
      * 功能描述: 删除流程分类
      * @author wjn
      * @create 2024/12/7 星期六 9:47
-     * @param: [id]
+     * @param: [idStr]
      * @return int
      */
-    int deleteCategory(Long id);
+    int deleteCategory(String idStr);
 
     /**
      * 功能描述: 获得流程分类详情
@@ -49,7 +48,7 @@ public interface FlwCategoryService extends BaseService<FlwCategoryDO> {
      * @param: [id]
      * @return java.lang.String
      */
-    FlwCategoryRespVO getCategory(Long id);
+    FlwCategoryDO getCategory(Long id);
 
     /**
      * 功能描述: 获得流程分类分页
@@ -58,5 +57,5 @@ public interface FlwCategoryService extends BaseService<FlwCategoryDO> {
      * @param: [pageReqVO]
      * @return java.util.List<com.wjn.flow.domin.vo.category.FlwCategoryRespVO>
      */
-    List<FlwCategoryRespVO> getCategoryPage(FlwCategoryPageReqVO pageReqVO);
+    List<FlwCategoryDO> getCategoryPage(FlwCategoryPageReqVO pageReqVO);
 }

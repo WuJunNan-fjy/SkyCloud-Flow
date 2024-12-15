@@ -16,7 +16,7 @@ import com.wjn.framework.web.domain.Server;
 @RequestMapping("/monitor/server")
 public class ServerController
 {
-    @PreAuthorize("@ss.hasPermi('monitor:server:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:server:list')")
     @GetMapping()
     public AjaxResult getInfo() throws Exception
     {

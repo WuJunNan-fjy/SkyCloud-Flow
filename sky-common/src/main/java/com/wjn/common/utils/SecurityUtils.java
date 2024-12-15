@@ -131,9 +131,9 @@ public class SecurityUtils
      * @param permission 权限字符串
      * @return 用户是否具备某权限
      */
-    public static boolean hasPermi(String permission)
+    public static boolean hasPermission(String permission)
     {
-        return hasPermi(getLoginUser().getPermissions(), permission);
+        return hasPermission(getLoginUser().getPermissions(), permission);
     }
 
     /**
@@ -143,7 +143,7 @@ public class SecurityUtils
      * @param permission 权限字符串
      * @return 用户是否具备某权限
      */
-    public static boolean hasPermi(Collection<String> authorities, String permission)
+    public static boolean hasPermission(Collection<String> authorities, String permission)
     {
         return authorities.stream().filter(StringUtils::hasText)
                 .anyMatch(x -> Constants.ALL_PERMISSION.equals(x) || PatternMatchUtils.simpleMatch(x, permission));

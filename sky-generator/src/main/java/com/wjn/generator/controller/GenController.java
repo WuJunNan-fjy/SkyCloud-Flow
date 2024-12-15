@@ -56,7 +56,7 @@ public class GenController extends BaseController
     /**
      * 查询代码生成列表
      */
-    @PreAuthorize("@ss.hasPermi('tool:gen:list')")
+    @PreAuthorize("@ss.hasPermission('tool:gen:list')")
     @GetMapping("/list")
     public TableDataInfo genList(GenTable genTable)
     {
@@ -68,7 +68,7 @@ public class GenController extends BaseController
     /**
      * 修改代码生成业务
      */
-    @PreAuthorize("@ss.hasPermi('tool:gen:query')")
+    @PreAuthorize("@ss.hasPermission('tool:gen:query')")
     @GetMapping(value = "/{tableId}")
     public AjaxResult getInfo(@PathVariable Long tableId)
     {

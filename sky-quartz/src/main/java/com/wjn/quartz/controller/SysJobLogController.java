@@ -34,7 +34,7 @@ public class SysJobLogController extends BaseController
     /**
      * 查询定时任务调度日志列表
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:list')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:list')")
     @GetMapping("/list")
     public TableDataInfo list(SysJobLog sysJobLog)
     {

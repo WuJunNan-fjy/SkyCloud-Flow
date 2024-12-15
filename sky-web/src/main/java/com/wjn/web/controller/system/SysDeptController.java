@@ -37,7 +37,7 @@ public class SysDeptController extends BaseController
     /**
      * 获取部门列表
      */
-    @PreAuthorize("@ss.hasPermi('system:dept:list')")
+    @PreAuthorize("@ss.hasPermission('system:dept:list')")
     @GetMapping("/list")
     public AjaxResult list(SysDept dept)
     {
@@ -48,7 +48,7 @@ public class SysDeptController extends BaseController
     /**
      * 查询部门列表（排除节点）
      */
-    @PreAuthorize("@ss.hasPermi('system:dept:list')")
+    @PreAuthorize("@ss.hasPermission('system:dept:list')")
     @GetMapping("/list/exclude/{deptId}")
     public AjaxResult excludeChild(@PathVariable(value = "deptId", required = false) Long deptId)
     {
@@ -60,7 +60,7 @@ public class SysDeptController extends BaseController
     /**
      * 根据部门编号获取详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:dept:query')")
+    @PreAuthorize("@ss.hasPermission('system:dept:query')")
     @GetMapping(value = "/{deptId}")
     public AjaxResult getInfo(@PathVariable Long deptId)
     {
@@ -71,7 +71,7 @@ public class SysDeptController extends BaseController
     /**
      * 新增部门
      */
-    @PreAuthorize("@ss.hasPermi('system:dept:add')")
+    @PreAuthorize("@ss.hasPermission('system:dept:add')")
     @Log(title = "部门管理", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody SysDept dept)
@@ -87,7 +87,7 @@ public class SysDeptController extends BaseController
     /**
      * 修改部门
      */
-    @PreAuthorize("@ss.hasPermi('system:dept:edit')")
+    @PreAuthorize("@ss.hasPermission('system:dept:edit')")
     @Log(title = "部门管理", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@Validated @RequestBody SysDept dept)
@@ -113,7 +113,7 @@ public class SysDeptController extends BaseController
     /**
      * 删除部门
      */
-    @PreAuthorize("@ss.hasPermi('system:dept:remove')")
+    @PreAuthorize("@ss.hasPermission('system:dept:remove')")
     @Log(title = "部门管理", businessType = BusinessType.DELETE)
     @DeleteMapping("/{deptId}")
     public AjaxResult remove(@PathVariable Long deptId)
