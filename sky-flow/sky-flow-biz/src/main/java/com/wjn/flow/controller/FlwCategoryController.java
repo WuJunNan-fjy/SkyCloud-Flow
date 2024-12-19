@@ -4,7 +4,7 @@ import com.wjn.common.annotation.CommFields;
 import com.wjn.common.core.controller.BaseController;
 import com.wjn.common.core.domain.AjaxResult;
 import com.wjn.common.core.page.TableDataInfo;
-import com.wjn.flow.domain.dto.definition.FlwCategoryDO;
+import com.wjn.flow.domain.dto.flow.FlwCategoryDO;
 import com.wjn.flow.domain.vo.category.FlwCategoryPageReqVO;
 import com.wjn.flow.domain.vo.category.FlwCategorySaveReqVO;
 import com.wjn.flow.service.FlwCategoryService;

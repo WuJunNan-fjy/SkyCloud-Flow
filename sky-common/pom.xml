@@ -153,14 +153,6 @@
             <artifactId>guava</artifactId>
         </dependency>
 
-        <!--mybatis-->
-<!--        &lt;!&ndash; 实现对 MyBatis 的自动化配置 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.mybatis.spring.boot</groupId>-->
-<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
-<!--            <version>${mybatis.spring}</version>-->
-<!--        </dependency>-->
-
         <!-- MyBatis 核心库 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -171,7 +163,6 @@
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>${mapper.mybatis}</version>
         </dependency>
 
         <dependency>

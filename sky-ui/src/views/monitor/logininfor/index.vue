@@ -61,7 +61,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['monitor:logininfor:remove']"
+          v-hasPermission="['monitor:logininfor:remove']"
         >删除</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -71,7 +71,7 @@
           icon="el-icon-delete"
           size="mini"
           @click="handleClean"
-          v-hasPermi="['monitor:logininfor:remove']"
+          v-hasPermission="['monitor:logininfor:remove']"
         >清空</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -82,7 +82,7 @@
           size="mini"
           :disabled="single"
           @click="handleUnlock"
-          v-hasPermi="['monitor:logininfor:unlock']"
+          v-hasPermission="['monitor:logininfor:unlock']"
         >解锁</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -92,7 +92,7 @@
           icon="el-icon-download"
           size="mini"
           @click="handleExport"
-          v-hasPermi="['monitor:logininfor:export']"
+          v-hasPermission="['monitor:logininfor:export']"
         >导出</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>

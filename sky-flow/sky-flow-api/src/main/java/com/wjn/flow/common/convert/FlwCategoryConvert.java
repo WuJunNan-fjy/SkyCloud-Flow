@@ -1,7 +1,7 @@
 package com.wjn.flow.common.convert;
 
 import com.wjn.common.utils.SnowFlake;
-import com.wjn.flow.domain.dto.definition.FlwCategoryDO;
+import com.wjn.flow.domain.dto.flow.FlwCategoryDO;
 import com.wjn.flow.domain.vo.category.FlwCategorySaveReqVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

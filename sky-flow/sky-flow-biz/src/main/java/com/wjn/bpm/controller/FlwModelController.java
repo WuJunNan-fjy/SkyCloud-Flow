@@ -28,14 +28,14 @@ public class FlwModelController extends BaseController {
 
     @GetMapping("/list")
     @Operation(summary = "获取流程模型列表")
-    @PreAuthorize("@ss.hasPermi('flow:model:list')")
+    @PreAuthorize("@ss.hasPermission('flow:model:list')")
     public TableDataInfo list(@Valid BpmModelPageReqVO pageReqVO) {
         return modelService.list(pageReqVO);
     }
 
     @PostMapping("/create")
     @Operation(summary = "新建模型")
-    @PreAuthorize("@ss.hasPermi('flow:model:create')")
+    @PreAuthorize("@ss.hasPermission('flow:model:create')")
     public AjaxResult createModel(@Valid @RequestBody BpmModelSaveReqVO createRetVO) {
         return AjaxResult.success(modelService.createModel(createRetVO));
     }

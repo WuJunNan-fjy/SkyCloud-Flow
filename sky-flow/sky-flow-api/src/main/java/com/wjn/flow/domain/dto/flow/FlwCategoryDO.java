@@ -1,4 +1,4 @@
-package com.wjn.flow.domain.dto.definition;
+package com.wjn.flow.domain.dto.flow;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.wjn.common.annotation.Excel;

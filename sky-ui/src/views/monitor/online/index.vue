@@ -52,7 +52,7 @@
             type="text"
             icon="el-icon-delete"
             @click="handleForceLogout(scope.row)"
-            v-hasPermi="['monitor:online:forceLogout']"
+            v-hasPermission="['monitor:online:forceLogout']"
           >强退</el-button>
         </template>
       </el-table-column>

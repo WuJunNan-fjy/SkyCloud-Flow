@@ -1,9 +1,9 @@
-package com.wjn.flow.domain.dto.definition;
+package com.wjn.flow.domain.dto.bpm;
 
 import com.wjn.common.core.domain.BaseEntity;
 import com.wjn.flow.common.enums.definition.BpmModelFormTypeEnum;
 import com.wjn.flow.common.enums.definition.BpmModelTypeEnum;
-import com.wjn.flow.domain.dto.user.AdminUserRespDTO;
+import com.wjn.flow.domain.dto.flow.FlwFormDO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -72,7 +72,7 @@ public class BpmProcessDefinitionInfoDO extends BaseEntity {
      *
      * 在表单类型为 {@link BpmModelFormTypeEnum#NORMAL} 时
      *
-     * 关联 {@link BpmFormDO#getId()}
+     * 关联 {@link FlwFormDO#getId()}
      */
     private Long formId;
     /**
@@ -80,7 +80,7 @@ public class BpmProcessDefinitionInfoDO extends BaseEntity {
      *
      * 在表单类型为 {@link BpmModelFormTypeEnum#NORMAL} 时
      *
-     * 冗余 {@link BpmFormDO#getConf()}
+     * 冗余 {@link FlwFormDO#getConf()}
      */
     private String formConf;
     /**
@@ -88,7 +88,7 @@ public class BpmProcessDefinitionInfoDO extends BaseEntity {
      *
      * 在表单类型为 {@link BpmModelFormTypeEnum#NORMAL} 时
      *
-     * 冗余 {@link BpmFormDO#getFields()}
+     * 冗余 {@link FlwFormDO#getFields()}
      */
     // @TableField("formFields")
     private List<String> formFields;

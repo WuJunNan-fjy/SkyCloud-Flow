@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wjn.flow.mapper.FlwCategoryMapper">
 
-    <resultMap id="FlwCategoryResult" type="com.wjn.flow.domain.dto.definition.FlwCategoryDO">
+    <resultMap id="FlwCategoryResult" type="com.wjn.flow.domain.dto.flow.FlwCategoryDO">
         <result property="id" column="id" />
         <result property="categoryCode" column="category_code" />
         <result property="categoryName" column="category_name" />
@@ -21,7 +21,7 @@
     </sql>
 
     <!--分页查询分类列表-->
-    <select id="queryCategoryPage" parameterType="com.wjn.flow.domain.dto.definition.FlwCategoryDO" resultMap="FlwCategoryResult">
+    <select id="queryCategoryPage" parameterType="com.wjn.flow.domain.dto.flow.FlwCategoryDO" resultMap="FlwCategoryResult">
         <include refid="selectFlwCategoryVo"/>
         <where>
             <if test="categoryCode != null  and categoryCode != ''"> and category_code = #{categoryCode} </if>

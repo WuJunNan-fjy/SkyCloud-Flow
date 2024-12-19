@@ -60,7 +60,7 @@
         <vxe-table-column title="操作" align="center" width="180" class-name="">
           <template slot-scope="scope">
             <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row,false)"
-                       v-hasPermi="['system:category:edit']" >修改</el-button>
+                       v-hasPermission="['system:category:edit']" >修改</el-button>
             <el-button size="mini" type="text" icon="el-icon-view" @click="handleUpdate(scope.row,true)" >详情</el-button>
             <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"  >删除</el-button>
           </template>

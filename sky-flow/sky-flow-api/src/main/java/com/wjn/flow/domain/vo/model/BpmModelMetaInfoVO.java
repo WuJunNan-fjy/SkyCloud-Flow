@@ -4,6 +4,7 @@ package com.wjn.flow.domain.vo.model;
 import com.wjn.common.validation.InEnum;
 import com.wjn.flow.common.enums.definition.BpmModelFormTypeEnum;
 import com.wjn.flow.common.enums.definition.BpmModelTypeEnum;
+import com.wjn.flow.domain.dto.bpm.BpmProcessDefinitionInfoDO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.Data;
  * BPM 流程 MetaInfo Response DTO
  * 主要用于 { Model#setMetaInfo(String)} 的存储
  *
- * 最终，它的字段和 {@link com.wjn.flow.domain.dto.definition.BpmProcessDefinitionInfoDO} 是一致的
+ * 最终，它的字段和 {@link BpmProcessDefinitionInfoDO} 是一致的
  *
  * @author wjn
  */

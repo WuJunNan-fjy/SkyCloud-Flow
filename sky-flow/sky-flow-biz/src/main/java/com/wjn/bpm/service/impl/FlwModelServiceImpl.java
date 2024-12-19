@@ -31,7 +31,7 @@ import static com.wjn.flow.common.constant.ErrorCodeConstants.MODEL_KEY_VALID;
 public class FlwModelServiceImpl implements FlwModelService {
 
     @Resource
-    private RepositoryService repositoryService; // 管理流程定义和部署的服务
+    private RepositoryService repositoryService; // 管理流程模型、定义和部署的服务
 
     /**
      * 功能描述: 获取流程模型列表

@@ -113,7 +113,7 @@ export function filterDynamicRoutes(routes) {
   const res = []
   routes.forEach(route => {
     if (route.permissions) {
-      if (auth.hasPermiOr(route.permissions)) {
+      if (auth.hasPermissionOr(route.permissions)) {
         res.push(route)
       }
     } else if (route.roles) {

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjn.flow.mapper.FlwFormMapper">
+
+<!--    <resultMap id="FlwCategoryResult" type="com.wjn.flow.domain.dto.flow.FlwCategoryDO">-->
+<!--        <result property="id" column="id" />-->
+<!--        <result property="categoryCode" column="category_code" />-->
+<!--        <result property="categoryName" column="category_name" />-->
+<!--        <result property="num" column="num" />-->
+<!--        <result property="deptId" column="dept_id" />-->
+<!--        <result property="userId" column="user_id" />-->
+<!--        <result property="createBy" column="create_by" />-->
+<!--        <result property="createTime" column="create_time" />-->
+<!--        <result property="updateBy" column="update_by" />-->
+<!--        <result property="updateTime" column="update_time" />-->
+<!--        <result property="remark" column="remark" />-->
+<!--    </resultMap>-->
+
+<!--    <sql id="selectFlwCategoryVo">-->
+<!--        select id, category_code, category_name, num, dept_id, user_id, create_by, create_time, update_by, update_time, remark from flw_category-->
+<!--    </sql>-->
+
+<!--    &lt;!&ndash;分页查询分类列表&ndash;&gt;-->
+<!--    <select id="queryCategoryPage" parameterType="com.wjn.flow.domain.dto.flow.FlwCategoryDO" resultMap="FlwCategoryResult">-->
+<!--        <include refid="selectFlwCategoryVo"/>-->
+<!--        <where>-->
+<!--            <if test="categoryCode != null  and categoryCode != ''"> and category_code = #{categoryCode} </if>-->
+<!--            <if test="categoryName != null  and categoryName != ''"> and category_name like concat('%',#{categoryName},'%') </if>-->
+<!--        </where>-->
+<!--        order by num asc, create_time desc-->
+<!--    </select>-->
+</mapper>

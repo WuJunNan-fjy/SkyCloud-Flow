@@ -1,8 +1,8 @@
 package com.wjn.flow.mapper;
 
 import com.wjn.common.core.crudDao.BaseMapper;
-import com.wjn.flow.domain.dto.flow.FlwCategoryDO;
-import com.wjn.flow.domain.vo.category.FlwCategoryPageReqVO;
+import com.wjn.flow.domain.dto.flow.FlwFormDO;
+import com.wjn.flow.domain.vo.form.FlwFormPageReqVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,14 +14,14 @@ import java.util.List;
  * @create: 2024-12-06 18:37
  * @version:v1.0
  */
-public interface FlwCategoryMapper extends BaseMapper<FlwCategoryDO> {
+public interface FlwFormMapper extends BaseMapper<FlwFormDO> {
 
     /**
      * 功能描述: 分页查询分类列表
      * @author wjn
      * @create 2024/12/15 星期日 16:15
      * @param: [pageReqVO]
-     * @return java.util.List<com.wjn.flow.domain.vo.category.FlwCategoryRespVO>
+     * @return java.util.List<com.wjn.flow.domin.vo.form.FlwFormRespVO>
      */
-    List<FlwCategoryDO> queryCategoryPage(FlwCategoryPageReqVO pageReqVO);
+    // List<FlwFormDO> queryFormPage(FlwFormPageReqVO pageReqVO);
 }

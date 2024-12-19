@@ -149,7 +149,7 @@ public class SysJobController extends BaseController
     /**
      * 定时任务状态修改
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:changeStatus')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:changeStatus')")
     @Log(title = "定时任务", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     public AjaxResult changeStatus(@RequestBody SysJob job) throws SchedulerException
@@ -162,7 +162,7 @@ public class SysJobController extends BaseController
     /**
      * 定时任务立即执行一次
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:changeStatus')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:changeStatus')")
     @Log(title = "定时任务", businessType = BusinessType.UPDATE)
     @PutMapping("/run")
     public AjaxResult run(@RequestBody SysJob job) throws SchedulerException
@@ -174,7 +174,7 @@ public class SysJobController extends BaseController
     /**
      * 删除定时任务
      */
-    @PreAuthorize("@ss.hasPermi('monitor:job:remove')")
+    @PreAuthorize("@ss.hasPermission('monitor:job:remove')")
     @Log(title = "定时任务", businessType = BusinessType.DELETE)
     @DeleteMapping("/{jobIds}")
     public AjaxResult remove(@PathVariable Long[] jobIds) throws SchedulerException, TaskException

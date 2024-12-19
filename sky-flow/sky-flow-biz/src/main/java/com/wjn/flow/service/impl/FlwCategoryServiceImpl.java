@@ -2,7 +2,7 @@ package com.wjn.flow.service.impl;
 
 import com.wjn.common.core.service.impl.BaseServiceImpl;
 import com.wjn.flow.common.convert.FlwCategoryConvert;
-import com.wjn.flow.domain.dto.definition.FlwCategoryDO;
+import com.wjn.flow.domain.dto.flow.FlwCategoryDO;
 import com.wjn.flow.domain.vo.category.FlwCategoryPageReqVO;
 import com.wjn.flow.domain.vo.category.FlwCategorySaveReqVO;
 import com.wjn.flow.mapper.FlwCategoryMapper;

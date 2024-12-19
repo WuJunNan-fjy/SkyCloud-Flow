@@ -21,7 +21,7 @@ import tk.mybatis.mapper.util.Sqls;
 
 public class BaseServiceImpl<T> extends BasePage implements BaseService<T> {
     // 注入mapper
-    @Resource
+    @Autowired
     private BaseMapper<T> baseMapper;
 
     // 缓存子类泛型类型

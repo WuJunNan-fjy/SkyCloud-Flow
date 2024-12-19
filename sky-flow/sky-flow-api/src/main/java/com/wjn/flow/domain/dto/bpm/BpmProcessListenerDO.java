@@ -1,4 +1,4 @@
-package com.wjn.flow.domain.dto.definition;
+package com.wjn.flow.domain.dto.bpm;
 
 import com.wjn.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;

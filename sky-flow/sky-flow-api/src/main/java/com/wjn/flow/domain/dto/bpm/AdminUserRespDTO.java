@@ -1,4 +1,4 @@
-package com.wjn.flow.domain.dto.user;
+package com.wjn.flow.domain.dto.bpm;
 
 import com.wjn.common.enums.CommonStatusEnum;
 import lombok.Data;

@@ -43,7 +43,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleGenTable"
-          v-hasPermi="['tool:gen:code']"
+          v-hasPermission="['tool:gen:code']"
         >生成</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -63,7 +63,7 @@
           icon="el-icon-upload"
           size="mini"
           @click="openImportTable"
-          v-hasPermi="['tool:gen:import']"
+          v-hasPermission="['tool:gen:import']"
         >导入</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -74,7 +74,7 @@
           size="mini"
           :disabled="single"
           @click="handleEditTable"
-          v-hasPermi="['tool:gen:edit']"
+          v-hasPermission="['tool:gen:edit']"
         >修改</el-button>
       </el-col>
       <el-col :span="1.5">
@@ -85,7 +85,7 @@
           size="mini"
           :disabled="multiple"
           @click="handleDelete"
-          v-hasPermi="['tool:gen:remove']"
+          v-hasPermission="['tool:gen:remove']"
         >删除</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
@@ -128,35 +128,35 @@
             size="small"
             icon="el-icon-view"
             @click="handlePreview(scope.row)"
-            v-hasPermi="['tool:gen:preview']"
+            v-hasPermission="['tool:gen:preview']"
           >预览</el-button>
           <el-button
             type="text"
             size="small"
             icon="el-icon-edit"
             @click="handleEditTable(scope.row)"
-            v-hasPermi="['tool:gen:edit']"
+            v-hasPermission="['tool:gen:edit']"
           >编辑</el-button>
           <el-button
             type="text"
             size="small"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
-            v-hasPermi="['tool:gen:remove']"
+            v-hasPermission="['tool:gen:remove']"
           >删除</el-button>
           <el-button
             type="text"
             size="small"
             icon="el-icon-refresh"
             @click="handleSynchDb(scope.row)"
-            v-hasPermi="['tool:gen:edit']"
+            v-hasPermission="['tool:gen:edit']"
           >同步</el-button>
           <el-button
             type="text"
             size="small"
             icon="el-icon-download"
             @click="handleGenTable(scope.row)"
-            v-hasPermi="['tool:gen:code']"
+            v-hasPermission="['tool:gen:code']"
           >生成代码</el-button>
         </template>
       </el-table-column>

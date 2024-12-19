@@ -1,7 +1,7 @@
 package com.wjn.flow.service;
 
 import com.wjn.common.core.service.BaseService;
-import com.wjn.flow.domain.dto.definition.FlwCategoryDO;
+import com.wjn.flow.domain.dto.flow.FlwCategoryDO;
 import com.wjn.flow.domain.vo.category.FlwCategoryPageReqVO;
 import com.wjn.flow.domain.vo.category.FlwCategorySaveReqVO;
 import java.util.List;
