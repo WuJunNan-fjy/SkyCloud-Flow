@@ -21,7 +21,7 @@ public interface FlwFormMapper extends BaseMapper<FlwFormDO> {
      * @author wjn
      * @create 2024/12/15 星期日 16:15
      * @param: [pageReqVO]
-     * @return java.util.List<com.wjn.flow.domin.vo.form.FlwFormRespVO>
+     * @return java.util.List<com.wjn.flow.domain.vo.form.FlwFormRespVO>
      */
-    // List<FlwFormDO> queryFormPage(FlwFormPageReqVO pageReqVO);
+    List<FlwFormDO> queryFormPage(FlwFormPageReqVO pageReqVO);
 }

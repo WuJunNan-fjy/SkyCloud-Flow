@@ -3,7 +3,7 @@ import request from '@/utils/request'
 // 查询流程分类列表
 export function getFormPage(query) {
   return request({
-    url: '/flow/category/page',
+    url: '/flow/form/page',
     method: 'get',
     params: query
   })
@@ -11,7 +11,7 @@ export function getFormPage(query) {
 // 查询流程分类详细
 export function getForm(id) {
   return request({
-    url: '/flow/category/getById/' + id,
+    url: '/flow/form/getById/' + id,
     method: 'get'
   })
 }
@@ -19,7 +19,7 @@ export function getForm(id) {
 // 新增流程分类
 export function createForm(data) {
   return request({
-    url: '/flow/category/create',
+    url: '/flow/form/create',
     method: 'post',
     data: data
   })
@@ -28,7 +28,7 @@ export function createForm(data) {
 // 修改流程分类
 export function updateForm(data) {
   return request({
-    url: '/flow/category/update',
+    url: '/flow/form/update',
     method: 'put',
     data: data
   })
@@ -37,7 +37,7 @@ export function updateForm(data) {
 // 删除流程分类
 export function deleteForm(id) {
   return request({
-    url: '/flow/category/delete/' + id,
+    url: '/flow/form/delete/' + id,
     method: 'delete'
   })
 }

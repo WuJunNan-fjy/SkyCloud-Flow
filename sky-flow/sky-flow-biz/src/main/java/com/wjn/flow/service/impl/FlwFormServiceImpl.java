@@ -85,8 +85,7 @@ public class FlwFormServiceImpl extends BaseServiceImpl<FlwFormDO> implements Fl
      */
     @Override
     public List<FlwFormDO> getFormPage(FlwFormPageReqVO pageReqVO){
-        // List<FlwFormDO> pageResult = formMapper.queryFormPage(pageReqVO);
-        // return pageResult;
-        return null;
+        List<FlwFormDO> pageResult = formMapper.queryFormPage(pageReqVO);
+        return pageResult;
     }
 }

@@ -1,5 +1,6 @@
 package com.wjn.flow.common.convert;
 
+import com.wjn.common.utils.SnowFlake;
 import com.wjn.flow.domain.dto.flow.FlwFormDO;
 import com.wjn.flow.domain.vo.form.FlwFormSaveReqVO;
 import org.mapstruct.factory.Mappers;
@@ -21,11 +22,13 @@ public interface FlwFormConvert {
 
     // 需要处理转换逻辑
     default FlwFormDO createConvertToDO(FlwFormSaveReqVO vo) {
-        return null;
+        FlwFormDO formDO = convertToDO(vo);
+        formDO.setId(SnowFlake.getId());
+        return formDO;
     }
 
     // 需要处理转换逻辑
     default FlwFormDO updateConvertToDO(FlwFormSaveReqVO vo) {
-        return null;
+        return convertToDO(vo);
     }
 }
