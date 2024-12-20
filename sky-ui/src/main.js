@@ -18,6 +18,7 @@ import './assets/icons' // icon
 import './permission' // permission control
 import { getDicts } from "@/api/system/dict/data";
 import { getConfigKey } from "@/api/system/config";
+import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/dict.js";
 import { parseTime, resetForm, addDateRange, selectDictLabel, selectDictLabels, handleTree,handleGetSnowFlakeId } from "@/utils/sky";
 // 分页组件
 import Pagination from "@/components/Pagination";
@@ -57,6 +58,10 @@ Vue.prototype.selectDictLabels = selectDictLabels
 Vue.prototype.download = download
 Vue.prototype.handleGetSnowFlakeId = handleGetSnowFlakeId
 Vue.prototype.handleTree = handleTree
+Vue.prototype.getDictDatas = getDictDatas
+Vue.prototype.getDictDatas2 = getDictDatas2
+Vue.prototype.getDictDataLabel = getDictDataLabel
+Vue.prototype.DICT_TYPE = DICT_TYPE
 
 // 全局组件挂载
 Vue.component('DictTag', DictTag)

@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class FlwFormPageReqVO extends PageParam {
 
-    @Schema(description = "表单名称", example = "芋道")
+    @Schema(description = "表单名称", example = "wjn")
     private String name;
 
 }

@@ -3,6 +3,11 @@ package com.wjn.web.controller.system;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.wjn.common.enums.CommonStatusEnum;
+import com.wjn.common.utils.bean.BeanUtils;
+import com.wjn.system.domain.vo.DictDataSimpleRespVO;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -117,5 +122,14 @@ public class SysDictDataController extends BaseController
     {
         dictDataService.deleteDictDataByIds(dictCodes);
         return success();
+    }
+
+    @GetMapping(value = {"/list-all-simple", "simple-list"})
+    @Operation(summary = "获得全部字典数据列表", description = "一般用于管理后台缓存字典数据在本地")
+    // 无需添加权限认证，因为前端全局都需要
+    public AjaxResult getSimpleDictDataList() {
+        List<SysDictData> list = dictDataService.getDictDataList(
+                CommonStatusEnum.ENABLE.getStatus(), null);
+        return success(BeanUtils.toBean(list, DictDataSimpleRespVO.class));
     }
 }

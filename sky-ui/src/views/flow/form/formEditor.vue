@@ -42,7 +42,7 @@
             </el-form-item>
             <el-form-item label="开启状态" prop="status">
               <el-radio-group v-model="form.status">
-                <el-radio v-for="dict in this.getDictDatas(DICT_TYPE.COMMON_STATUS)"
+                <el-radio v-for="dict in getDictDatas(DICT_TYPE.COMMON_STATUS)"
                           :key="dict.value" :label="parseInt(dict.value)">{{dict.label}}</el-radio>
               </el-radio-group>
             </el-form-item>
@@ -274,7 +274,7 @@ export default {
     }
   },
   mounted() {
-    // 【add by 芋道源码】不读缓存
+    // 【add by wjn】不读缓存
     // if (Array.isArray(drawingListInDB) && drawingListInDB.length > 0) {
     //   this.drawingList = drawingListInDB
     // } else {
@@ -563,5 +563,5 @@ export default {
 </script>
 
 <style lang='scss'>
-@import '@/assets/styles/home';
+@import '@/styles/home';
 </style>

@@ -99,7 +99,7 @@ export const constantRoutes = [
   {
     path: '/flow/form/formEditor',
     component: () => import('@/views/flow/form/formEditor'),
-    meta: {title: '设计流程', activeMenu: '/flow/form/formEditor'},
+    meta: {title: '流程表单', activeMenu: '/flow/form/formEditor'},
     name: 'BpmFormEditor',
     hidden: true
   },
