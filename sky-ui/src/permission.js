@@ -24,7 +24,7 @@ router.beforeEach((to, from, next) => {
       if (store.getters.roles.length === 0) {
         isRelogin.show = true
         // 获取字典数据 add by wjn
-        store.dispatch('dict/loadDictDatas')
+        // store.dispatch('dict/loadDictDatas')
         // 判断当前用户是否已拉取完user_info信息
         store.dispatch('GetInfo').then(() => {
           isRelogin.show = false
