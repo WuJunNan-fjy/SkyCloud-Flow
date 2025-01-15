@@ -251,18 +251,6 @@ export default {
 };
 </script>
 <style lang="scss">
-  /* 给所有表单控件添加圆角和阴影 */
-.el-input__inner,
-.el-select .el-input__inner,
-.el-textarea__inner,
-//.el-radio-group .el-radio,
-.el-checkbox-group .el-checkbox,
-.el-button,
-.el-select-dropdown__item {
-  border-radius: 4px; /* 圆角边框 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-}
-
 /* 让输入框、选择框和单选框占据满宽度 */
 .el-input, .el-select, .el-radio-group, .el-textarea {
   width: 100%; /* 确保元素占满宽度 */

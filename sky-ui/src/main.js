@@ -18,7 +18,6 @@ import './assets/icons' // icon
 import './permission' // permission control
 import { getDicts } from "@/api/system/dict/data";
 import { getConfigKey } from "@/api/system/config";
-import {DICT_TYPE, getDictDataLabel, getDictDatas, getDictDatas2} from "@/utils/dict.js";
 import { parseTime, resetForm, addDateRange, selectDictLabel, selectDictLabels, handleTree,handleGetSnowFlakeId } from "@/utils/sky";
 // 分页组件
 import Pagination from "@/components/Pagination";
@@ -34,10 +33,10 @@ import ImageUpload from "@/components/ImageUpload"
 import ImagePreview from "@/components/ImagePreview"
 // 字典标签组件
 import DictTag from '@/components/DictTag'
-// 头部标签组件
-import VueMeta from 'vue-meta'
 // 字典数据组件
 import DictData from '@/components/DictData'
+// 头部标签组件
+import VueMeta from 'vue-meta'
 // bpmnProcessDesigner 需要引入
 import MyPD from "@/components/bpmnProcessDesigner/package/index.js";
 Vue.use(MyPD);
@@ -58,10 +57,6 @@ Vue.prototype.selectDictLabels = selectDictLabels
 Vue.prototype.download = download
 Vue.prototype.handleGetSnowFlakeId = handleGetSnowFlakeId
 Vue.prototype.handleTree = handleTree
-Vue.prototype.getDictDatas = getDictDatas
-Vue.prototype.getDictDatas2 = getDictDatas2
-Vue.prototype.getDictDataLabel = getDictDataLabel
-Vue.prototype.DICT_TYPE = DICT_TYPE
 
 // 全局组件挂载
 Vue.component('DictTag', DictTag)

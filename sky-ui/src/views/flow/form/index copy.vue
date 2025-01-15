@@ -64,7 +64,7 @@
 <script>
 import {deleteForm, getForm, getFormPage} from "@/api/flow/form";
 import Parser from '@/components/parser/Parser'
-import {decodeFields} from "@/utils/formGenerator";
+// import {decodeFields} from "@/utils/formGenerator";
 
 export default {
   name: "BpmForm",

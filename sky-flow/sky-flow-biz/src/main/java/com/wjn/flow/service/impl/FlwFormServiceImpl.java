@@ -4,10 +4,10 @@ import com.wjn.common.core.service.impl.BaseServiceImpl;
 import com.wjn.flow.common.convert.FlwFormConvert;
 import com.wjn.flow.domain.dto.flow.FlwFormDO;
 import com.wjn.flow.domain.vo.form.FlwFormPageReqVO;
+import com.wjn.flow.domain.vo.form.FlwFormRespVO;
 import com.wjn.flow.domain.vo.form.FlwFormSaveReqVO;
 import com.wjn.flow.mapper.FlwFormMapper;
 import com.wjn.flow.service.FlwFormService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -72,8 +72,10 @@ public class FlwFormServiceImpl extends BaseServiceImpl<FlwFormDO> implements Fl
      * @return java.lang.String
      */
     @Override
-    public FlwFormDO getForm(Long id){
-        return formMapper.selectByPrimaryKey(id);
+    public FlwFormRespVO getForm(Long id){
+        FlwFormDO formDO = formMapper.selectByPrimaryKey(id);
+        FlwFormRespVO formRespVO = FlwFormConvert.INSTANCE.detailConvertToResVO(formDO);
+        return formRespVO;
     }
 
     /**

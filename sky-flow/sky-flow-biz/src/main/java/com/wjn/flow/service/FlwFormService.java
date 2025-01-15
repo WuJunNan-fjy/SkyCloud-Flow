@@ -3,6 +3,7 @@ package com.wjn.flow.service;
 import com.wjn.common.core.service.BaseService;
 import com.wjn.flow.domain.dto.flow.FlwFormDO;
 import com.wjn.flow.domain.vo.form.FlwFormPageReqVO;
+import com.wjn.flow.domain.vo.form.FlwFormRespVO;
 import com.wjn.flow.domain.vo.form.FlwFormSaveReqVO;
 
 import java.util.List;
@@ -49,7 +50,7 @@ public interface FlwFormService extends BaseService<FlwFormDO> {
      * @param: [id]
      * @return java.lang.String
      */
-    FlwFormDO getForm(Long id);
+    FlwFormRespVO getForm(Long id);
 
     /**
      * 功能描述: 获得流程表单分页

@@ -1,5 +1,6 @@
 package com.wjn.flow.domain.vo.form;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class FlwFormRespVO {
 
     @Schema(description = "表单编号", requiredMode = Schema.RequiredMode.REQUIRED, example = "1024")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)//long类型返回字符串，防止前台js出现精度损失问题，造成后台报错
     private Long id;
 
     @Schema(description = "表单名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "wjn")
@@ -24,7 +26,7 @@ public class FlwFormRespVO {
 
     @Schema(description = "表单项的数组-JSON 字符串的数组", requiredMode = Schema.RequiredMode.REQUIRED)
     @NotNull(message = "表单项的数组不能为空")
-    private List<String> fields;
+    private List<String> fieldList;
 
     @Schema(description = "表单状态", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
     @NotNull(message = "表单状态不能为空")

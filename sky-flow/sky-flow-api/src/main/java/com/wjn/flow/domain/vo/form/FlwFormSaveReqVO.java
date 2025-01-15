@@ -23,7 +23,7 @@ public class FlwFormSaveReqVO {
 
     @Schema(description = "表单项的数组-JSON 字符串的数组", requiredMode = Schema.RequiredMode.REQUIRED)
     @NotNull(message = "表单项的数组不能为空")
-    private List<String> fields;
+    private List<String> fieldList;
 
     @Schema(description = "表单状态-参见 CommonStatusEnum 枚举", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
     @NotNull(message = "表单状态不能为空")

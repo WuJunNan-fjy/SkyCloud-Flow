@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wjn.flow.mapper.FlwFormMapper">
 
-    <resultMap id="FlwCategoryResult" type="com.wjn.flow.domain.dto.flow.FlwFormDO">
+    <resultMap id="FlwFormResult" type="com.wjn.flow.domain.dto.flow.FlwFormDO">
         <result property="id" column="id" />
         <result property="name" column="name" />
         <result property="status" column="status" />
@@ -15,17 +15,16 @@
         <result property="remark" column="remark" />
     </resultMap>
 
-    <sql id="selectFlwCategoryVo">
+    <sql id="selectFlwFormVo">
         select id, name, status, conf, fields, create_by, create_time, update_by, update_time, remark from flw_form
     </sql>
 
     <!--分页查询分类列表-->
-    <select id="queryFormPage" parameterType="com.wjn.flow.domain.dto.flow.FlwCategoryDO" resultMap="FlwCategoryResult">
-        <include refid="selectFlwCategoryVo"/>
+    <select id="queryFormPage" parameterType="com.wjn.flow.domain.dto.flow.FlwFormDO" resultMap="FlwFormResult">
+        <include refid="selectFlwFormVo"/>
         <where>
-            <if test="status != null  and status != ''"> and status = #{status} </if>
             <if test="name != null  and name != ''"> and name like concat('%',#{name},'%') </if>
         </where>
-        order by num asc, create_time desc
+        order by create_time desc
     </select>
 </mapper>

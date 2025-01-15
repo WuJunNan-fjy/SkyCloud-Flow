@@ -1,7 +1,5 @@
 <template>
   <div class="app-container">
-    <doc-alert title="审批接入（流程表单）" url="https://doc.iocoder.cn/bpm/use-bpm-form/" />
-
     <!-- 搜索工作栏 -->
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="表单名" prop="name">
@@ -28,7 +26,7 @@
       <el-table-column label="表单名" align="center" prop="name" />
       <el-table-column label="开启状态" align="center" prop="status">
         <template v-slot="scope">
-          <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status"/>
+          <dict-tag :options="dict.type.common_status" :value="scope.row.status"/>
         </template>
       </el-table-column>
       <el-table-column label="备注" align="center" prop="remark" />
@@ -64,10 +62,10 @@
 <script>
 import {deleteForm, getForm, getFormPage} from "@/api/flow/form";
 import Parser from '@/components/parser/Parser'
-import {decodeFields} from "@/utils/formGenerator";
 
 export default {
   name: "BpmForm",
+  dicts: ['common_status'],
   components: {
     Parser
   },
@@ -90,12 +88,13 @@ export default {
       // 表单详情
       detailOpen: false,
       detailForm: {
-        fields: []
+        fieldList: []
       }
     };
   },
   created() {
-    // this.getList();
+    console.log()
+    this.getList();
   },
   methods: {
     /** 查询列表 */
@@ -103,8 +102,9 @@ export default {
       this.loading = true;
       // 执行查询
       getFormPage(this.queryParams).then(response => {
-        this.list = response.data.list;
-        this.total = response.data.total;
+        console.log("response",response)
+        this.list = response.rows;
+        this.total = response.total;
         this.loading = false;
       });
     },
@@ -125,7 +125,7 @@ export default {
         const data = response.data
         this.detailForm = {
           ...JSON.parse(data.conf),
-          fields: decodeFields(data.fields)
+          fieldList: decodeFieldList(data.fieldList)
         }
         // 弹窗打开
         this.detailOpen = true

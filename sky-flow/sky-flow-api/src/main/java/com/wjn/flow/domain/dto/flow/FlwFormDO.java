@@ -10,7 +10,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.List;
 
 /**
  * BPM 工作流的表单定义
@@ -56,7 +55,7 @@ public class FlwFormDO extends BaseEntity {
      * 目前直接将 https://github.com/JakHuang/form-generator 生成的 JSON 串，直接保存
      * 定义：https://github.com/JakHuang/form-generator/issues/46
      */
-    private List<String> fields;
+    private String fields;
     /**
      * 备注
      */

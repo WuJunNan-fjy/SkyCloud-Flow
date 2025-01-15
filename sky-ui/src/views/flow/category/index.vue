@@ -315,49 +315,8 @@ export default {
   height: 100%;
   overflow: hidden;
 }
-::v-deep.sendAddBtnCls.el-button--default.is-plain,
-.sendAddBtnCls.el-button--default.is-plain:hover {
-  border-color: #0F6192;
-  color: #0F6192 !important;
-  margin-left: .7vw;
-  font-size: 14px;
-  padding: 8px .4vw;
-}
-::v-deep .sendAddBtnCls.el-button--default.is-plain img {
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  vertical-align: bottom;
-  margin-right: 8px;
-}
-::v-deep .popverOk.el-button--primary {
-  background-color: #0F6192;
-  border-color: #0F6192;
-}
-::v-deep .popverReset.el-button--default,
-::v-deep .popverCancel.el-button--default {
-  border-color: #0F6192;
-  color: #0F6192;
-}
-.categoryListInput ::v-deep .el-input-group__append button.el-button {
-  border-color: #0F6192;
-  background-color: #0F6192;
-  border-radius: 0;
-  color: #fff;
-  padding: 9px .4vw;
-  height: 32px;
-  width: 70px;
-  display: flex;
-  align-items: center;
-}
-.categoryListInput ::v-deep .el-input-group__append button.el-button .el-icon-search{
-  margin-top: -3px;
-}
-::v-deep .categoryListInput.el-input--medium .el-input__inner {
-  height: 32px;
-  line-height: 32px;
-  border-color: #0F6192;
-  border-radius: 0;
+::v-deep .el-form-item__error {
+  top: 60%;
 }
 .categoryTable {
   height: calc(100% - 100px);

@@ -1,7 +1,5 @@
-import { listSimpleDictDatas } from '@/api/system/dict/data'
 const state = {
-  dict: new Array(),
-  dictDatas: {}
+  dict: new Array()
 }
 const mutations = {
   SET_DICT: (state, { key, value }) => {
@@ -25,9 +23,6 @@ const mutations = {
   },
   CLEAN_DICT: (state) => {
     state.dict = new Array()
-  },
-  SET_DICT_DATAS: (state, dictDatas) => {
-    state.dictDatas = dictDatas
   }
 }
 
@@ -43,30 +38,6 @@ const actions = {
   // 清空字典
   cleanDict({ commit }) {
     commit('CLEAN_DICT')
-  },
-  loadDictDatas({ commit }) {
-    listSimpleDictDatas().then(response => {
-      if (!response || !response.data) {
-        console.warn('No data received from the server.')
-        return
-      }
-      const dictDataMap = {}
-      response.data.forEach(dictData => {
-        const enumValueObj = dictDataMap[dictData.dictType]
-        if (!enumValueObj) {
-          dictDataMap[dictData.dictType] = []
-        }
-        dictDataMap[dictData.dictType].push({
-          value: dictData.value,
-          label: dictData.label,
-          colorType: dictData.colorType,
-          cssClass: dictData.cssClass,
-        })
-      })
-      commit('SET_DICT_DATAS', dictDataMap)
-    }).catch(error => {
-      console.error('Error loading dictionary data:', error) // 错误日志
-    })
   }
 }
 
