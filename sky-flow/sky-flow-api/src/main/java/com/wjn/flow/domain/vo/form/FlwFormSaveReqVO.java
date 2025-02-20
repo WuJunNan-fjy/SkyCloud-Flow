@@ -1,5 +1,8 @@
 package com.wjn.flow.domain.vo.form;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.wjn.common.handler.BooleanToIntegerDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -10,7 +13,7 @@ import java.util.List;
 @Data
 public class FlwFormSaveReqVO {
 
-    @Schema(description = "表单编号", example = "1024")
+    @Schema(description = "表单主键")
     private Long id;
 
     @Schema(description = "表单名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "wjn")

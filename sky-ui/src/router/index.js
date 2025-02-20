@@ -90,19 +90,33 @@ export const constantRoutes = [
   },
   // 流程相关路由
   {
-    path: '/flow/model/modelEditor',
-    component: () => import('@/views/flow/model/modelEditor'),
-    meta: {title: '设计流程', activeMenu: '/flow/model/modelEditor'},
-    name: 'BpmModelEditor',
-    hidden: true
-  },
-  {
-    path: '/flow/form/formEditor',
-    component: () => import('@/views/flow/form/formEditor'),
-    meta: {title: '流程表单', activeMenu: '/flow/form/formEditor'},
-    name: 'BpmFormEditor',
-    hidden: true
-  },
+    path: '/flow',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'model/modelEditor',
+        component: () => import('@/views/flow/model/modelEditor'),
+        meta: {title: '设计流程', activeMenu: '/flow/model/modelEditor'},
+        name: 'BpmModelEditor',
+        hidden: true
+      },
+      {
+        path: 'form/formEditor',
+        component: () => import('@/views/flow/form/formEditor'),
+        meta: {title: '流程表单', activeMenu: '/flow/form/formEditor'},
+        name: 'BpmFormEditor',
+        hidden: true
+      },
+      {
+        path: 'form/index',
+        component: () => import('@/views/flow/form/index'),
+        meta: {title: '流程表单', activeMenu: '/flow/form/index'},
+        name: 'BpmFormIndex',
+        hidden: true
+      }
+    ]
+  }
 ]
 
 // 动态路由，基于用户权限动态去加载

@@ -31,7 +31,7 @@
               </el-radio-group>
             </el-form-item>
             <el-form-item v-if="showFileName" label="文件名" prop="fileName">
-              <el-input v-model="formData.fileName" placeholder="请输入文件名" clearable />
+              <el-input v-model.trim="formData.fileName" placeholder="请输入文件名" clearable />
             </el-form-item>
           </el-col>
         </el-form>
@@ -41,7 +41,7 @@
         <el-button @click="close">
           取消
         </el-button>
-        <el-button type="primary" @click="handleConfirm">
+        <el-button type="primary" @click="handelConfirm">
           确定
         </el-button>
       </div>
@@ -94,7 +94,7 @@ export default {
     close(e) {
       this.$emit('update:visible', false)
     },
-    handleConfirm() {
+    handelConfirm() {
       this.$refs.elForm.validate(valid => {
         if (!valid) return
         this.$emit('confirm', { ...this.formData })
@@ -104,3 +104,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

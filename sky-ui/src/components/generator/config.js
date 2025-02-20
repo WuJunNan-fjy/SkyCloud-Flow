@@ -128,25 +128,25 @@ export const inputComponents = [
     'controls-position': '',
     disabled: false
   },
-  {
-    __config__: {
-      label: '编辑器',
-      showLabel: true,
-      changeTag: true,
-      labelWidth: null,
-      tag: 'tinymce',
-      tagIcon: 'rich-text',
-      defaultValue: null,
-      span: 24,
-      layout: 'colFormItem',
-      required: true,
-      regList: [],
-      document: 'http://tinymce.ax-z.cn'
-    },
-    placeholder: '请输入',
-    height: 300, // 编辑器高度
-    branding: false // 隐藏右下角品牌烙印
-  }
+  // {
+  //   __config__: {
+  //     label: '编辑器',
+  //     showLabel: true,
+  //     changeTag: true,
+  //     labelWidth: null,
+  //     tag: 'tinymce',
+  //     tagIcon: 'rich-text',
+  //     defaultValue: null,
+  //     span: 24,
+  //     layout: 'colFormItem',
+  //     required: true,
+  //     regList: [],
+  //     document: 'http://tinymce.ax-z.cn'
+  //   },
+  //   placeholder: '请输入',
+  //   height: 300, // 编辑器高度
+  //   branding: false // 隐藏右下角品牌烙印
+  // }
 ]
 
 // 选择型组件 【左面板】
@@ -181,52 +181,52 @@ export const selectComponents = [
     filterable: false,
     multiple: false
   },
-  {
-    __config__: {
-      label: '级联选择',
-      url: 'https://www.fastmock.site/mock/f8d7a54fb1e60561e2f720d5a810009d/fg/cascaderList',
-      method: 'get',
-      dataPath: 'list',
-      dataConsumer: 'options',
-      showLabel: true,
-      labelWidth: null,
-      tag: 'el-cascader',
-      tagIcon: 'cascader',
-      layout: 'colFormItem',
-      defaultValue: [],
-      dataType: 'dynamic',
-      span: 24,
-      required: true,
-      regList: [],
-      changeTag: true,
-      document: 'https://element.eleme.cn/#/zh-CN/component/cascader'
-    },
-    options: [{
-      id: 1,
-      value: 1,
-      label: '选项1',
-      children: [{
-        id: 2,
-        value: 2,
-        label: '选项1-1'
-      }]
-    }],
-    placeholder: '请选择',
-    style: { width: '100%' },
-    props: {
-      props: {
-        multiple: false,
-        label: 'label',
-        value: 'value',
-        children: 'children'
-      }
-    },
-    'show-all-levels': true,
-    disabled: false,
-    clearable: true,
-    filterable: false,
-    separator: '/'
-  },
+  // {
+  //   __config__: {
+  //     label: '级联选择',
+  //     url: 'https://www.fastmock.site/mock/f8d7a54fb1e60561e2f720d5a810009d/fg/cascaderList',
+  //     method: 'get',
+  //     dataPath: 'list',
+  //     dataConsumer: 'options',
+  //     showLabel: true,
+  //     labelWidth: null,
+  //     tag: 'el-cascader',
+  //     tagIcon: 'cascader',
+  //     layout: 'colFormItem',
+  //     defaultValue: [],
+  //     dataType: 'dynamic',
+  //     span: 24,
+  //     required: true,
+  //     regList: [],
+  //     changeTag: true,
+  //     document: 'https://element.eleme.cn/#/zh-CN/component/cascader'
+  //   },
+  //   options: [{
+  //     id: 1,
+  //     value: 1,
+  //     label: '选项1',
+  //     children: [{
+  //       id: 2,
+  //       value: 2,
+  //       label: '选项1-1'
+  //     }]
+  //   }],
+  //   placeholder: '请选择',
+  //   style: { width: '100%' },
+  //   props: {
+  //     props: {
+  //       multiple: false,
+  //       label: 'label',
+  //       value: 'value',
+  //       children: 'children'
+  //     }
+  //   },
+  //   'show-all-levels': true,
+  //   disabled: false,
+  //   clearable: true,
+  //   filterable: false,
+  //   separator: '/'
+  // },
   {
     __config__: {
       label: '单选框组',

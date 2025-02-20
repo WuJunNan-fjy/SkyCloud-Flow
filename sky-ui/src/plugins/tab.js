@@ -23,9 +23,11 @@ export default {
     })
   },
   // 关闭当前tab页签，打开新页签
-  closeOpenPage(obj) {
-    store.dispatch("tagsView/delView", router.currentRoute);
+  async closeOpenPage(obj) {
+    // 删除当前页签
+    await store.dispatch("tagsView/delView", router.currentRoute);
     if (obj !== undefined) {
+      // 跳转到新页签
       return router.push(obj);
     }
   },

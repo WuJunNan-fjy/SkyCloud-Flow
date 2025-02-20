@@ -89,20 +89,19 @@ export default {
       detailOpen: false,
       detailForm: {
         fieldList: []
-      }
+      },
     };
   },
   created() {
-    console.log()
     this.getList();
   },
   methods: {
+
     /** 查询列表 */
     getList() {
       this.loading = true;
       // 执行查询
       getFormPage(this.queryParams).then(response => {
-        console.log("response",response)
         this.list = response.rows;
         this.total = response.total;
         this.loading = false;
@@ -123,9 +122,14 @@ export default {
       getForm(row.id).then(response => {
         // 设置值
         const data = response.data
+        // this.detailForm = {
+        //   ...JSON.parse(data.conf),
+        //   fieldList: decodeFieldList(data.fieldList)
+        // }
+        console.log("data",data)
         this.detailForm = {
           ...JSON.parse(data.conf),
-          fieldList: decodeFieldList(data.fieldList)
+          fields: data.fieldList.map(item => JSON.parse(item))
         }
         // 弹窗打开
         this.detailOpen = true

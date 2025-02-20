@@ -1,6 +1,8 @@
 package com.wjn.flow.domain.vo.form;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.wjn.common.handler.BooleanToIntegerDeserializer;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 

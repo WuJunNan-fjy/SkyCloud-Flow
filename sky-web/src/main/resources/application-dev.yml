@@ -19,7 +19,7 @@ sky:
 # 开发环境配置
 server:
     # 服务器的HTTP端口，默认为8080
-    port: 8088
+    port: 8089
     servlet:
         # 应用的访问路径
         context-path: /
@@ -59,7 +59,7 @@ spring:
         druid:
             # 主库数据源
             master:
-                url: jdbc:mysql://localhost:3307/sky?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+                url: jdbc:mysql://localhost:3307/sky_copy?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
                 username: root
                 password: 1234
             # 从库数据源
