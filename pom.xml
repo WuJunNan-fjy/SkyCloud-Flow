@@ -314,6 +314,7 @@
         <module>sky-common</module>
         <module>sky-flow</module>
         <module>sky-test</module>
+        <module>sky-model</module>
     </modules>
     <packaging>pom</packaging>
 

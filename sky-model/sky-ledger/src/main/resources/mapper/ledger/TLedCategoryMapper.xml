@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjn.ledger.mapper.TLedCategoryMapper">
+    
+    <resultMap type="TLedCategory" id="TLedCategoryResult">
+        <result property="categoryId"    column="category_id"    />
+        <result property="categoryName"    column="category_name"    />
+        <result property="categoryDesc"    column="category_desc"    />
+        <result property="status"    column="status"    />
+        <result property="isDeleted"    column="is_deleted"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createUser"    column="create_user"    />
+        <result property="updateUser"    column="update_user"    />
+    </resultMap>
+
+    <sql id="selectTLedCategoryVo">
+        select category_id, category_name, category_desc, status, is_deleted, create_time, update_time, create_user, update_user from t_led_category
+    </sql>
+
+    <select id="selectTLedCategoryList" parameterType="TLedCategory" resultMap="TLedCategoryResult">
+        <include refid="selectTLedCategoryVo"/>
+        <where>  
+            <if test="categoryName != null  and categoryName != ''"> and category_name like concat('%', #{categoryName}, '%')</if>
+            <if test="categoryDesc != null  and categoryDesc != ''"> and category_desc = #{categoryDesc}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="isDeleted != null "> and is_deleted = #{isDeleted}</if>
+            <if test="createUser != null  and createUser != ''"> and create_user = #{createUser}</if>
+            <if test="updateUser != null  and updateUser != ''"> and update_user = #{updateUser}</if>
+        </where>
+    </select>
+    
+    <select id="selectTLedCategoryByCategoryId" parameterType="Long" resultMap="TLedCategoryResult">
+        <include refid="selectTLedCategoryVo"/>
+        where category_id = #{categoryId}
+    </select>
+
+    <insert id="insertTLedCategory" parameterType="TLedCategory">
+        insert into t_led_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="categoryId != null">category_id,</if>
+            <if test="categoryName != null and categoryName != ''">category_name,</if>
+            <if test="categoryDesc != null">category_desc,</if>
+            <if test="status != null">status,</if>
+            <if test="isDeleted != null">is_deleted,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createUser != null and createUser != ''">create_user,</if>
+            <if test="updateUser != null and updateUser != ''">update_user,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="categoryName != null and categoryName != ''">#{categoryName},</if>
+            <if test="categoryDesc != null">#{categoryDesc},</if>
+            <if test="status != null">#{status},</if>
+            <if test="isDeleted != null">#{isDeleted},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createUser != null and createUser != ''">#{createUser},</if>
+            <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTLedCategory" parameterType="TLedCategory">
+        update t_led_category
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="categoryName != null and categoryName != ''">category_name = #{categoryName},</if>
+            <if test="categoryDesc != null">category_desc = #{categoryDesc},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createUser != null and createUser != ''">create_user = #{createUser},</if>
+            <if test="updateUser != null and updateUser != ''">update_user = #{updateUser},</if>
+        </trim>
+        where category_id = #{categoryId}
+    </update>
+
+    <delete id="deleteTLedCategoryByCategoryId" parameterType="Long">
+        delete from t_led_category where category_id = #{categoryId}
+    </delete>
+
+    <delete id="deleteTLedCategoryByCategoryIds" parameterType="String">
+        delete from t_led_category where category_id in 
+        <foreach item="categoryId" collection="array" open="(" separator="," close=")">
+            #{categoryId}
+        </foreach>
+    </delete>
+</mapper>

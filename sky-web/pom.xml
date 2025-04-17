@@ -86,6 +86,12 @@
             <version>${sky.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.wjn</groupId>
+            <artifactId>sky-ledger</artifactId>
+            <version>${sky.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

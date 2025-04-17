@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjn.ledger.mapper.TLedDetailMapper">
+
+    <resultMap type="TLedDetail" id="TLedDetailResult">
+        <result property="detailId"    column="detail_id"    />
+        <result property="categoryId"    column="category_id"    />
+        <result property="detailDate"    column="detail_date"    />
+        <result property="amount"    column="amount"    />
+        <result property="description"    column="description"    />
+        <result property="detailType"    column="detail_type"    />
+        <result property="status"    column="status"    />
+        <result property="isDeleted"    column="is_deleted"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="createUser"    column="create_user"    />
+        <result property="updateUser"    column="update_user"    />
+        <result property="categoryName"    column="category_name"    />
+    </resultMap>
+
+    <sql id="selectTLedDetailVo">
+        select detail_id, category_id, detail_date, amount, description, detail_type, status, is_deleted, create_time, update_time, create_user, update_user from t_led_detail
+    </sql>
+
+    <select id="selectTLedDetailList" parameterType="TLedDetail" resultMap="TLedDetailResult">
+        SELECT
+            d.detail_id,
+            d.category_id,
+            d.detail_date,
+            d.amount,
+            d.description,
+            d.detail_type,
+            d.status,
+            d.is_deleted,
+            d.create_time,
+            d.update_time,
+            d.create_user,
+            d.update_user,
+            c.category_name AS category_name
+        FROM t_led_detail d
+        LEFT JOIN t_led_category c on d.category_id = c.category_id
+        <where>
+            <if test="categoryId != null "> and category_id = #{categoryId}</if>
+            <if test="detailDate != null "> and detail_date = #{detailDate}</if>
+            <if test="amount != null "> and amount = #{amount}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="detailType != null  and detailType != ''"> and detail_type = #{detailType}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="isDeleted != null "> and is_deleted = #{isDeleted}</if>
+            <if test="createUser != null  and createUser != ''"> and create_user = #{createUser}</if>
+            <if test="updateUser != null  and updateUser != ''"> and update_user = #{updateUser}</if>
+        </where>
+    </select>
+
+    <select id="selectTLedDetailByDetailId" parameterType="Long" resultMap="TLedDetailResult">
+        <include refid="selectTLedDetailVo"/>
+        where detail_id = #{detailId}
+    </select>
+
+    <insert id="insertTLedDetail" parameterType="TLedDetail">
+        insert into t_led_detail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="detailId != null">detail_id,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="detailDate != null">detail_date,</if>
+            <if test="amount != null">amount,</if>
+            <if test="description != null">description,</if>
+            <if test="detailType != null and detailType != ''">detail_type,</if>
+            <if test="status != null">status,</if>
+            <if test="isDeleted != null">is_deleted,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="createUser != null and createUser != ''">create_user,</if>
+            <if test="updateUser != null and updateUser != ''">update_user,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="detailId != null">#{detailId},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="detailDate != null">#{detailDate},</if>
+            <if test="amount != null">#{amount},</if>
+            <if test="description != null">#{description},</if>
+            <if test="detailType != null and detailType != ''">#{detailType},</if>
+            <if test="status != null">#{status},</if>
+            <if test="isDeleted != null">#{isDeleted},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="createUser != null and createUser != ''">#{createUser},</if>
+            <if test="updateUser != null and updateUser != ''">#{updateUser},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTLedDetail" parameterType="TLedDetail">
+        update t_led_detail
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="detailDate != null">detail_date = #{detailDate},</if>
+            <if test="amount != null">amount = #{amount},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="detailType != null and detailType != ''">detail_type = #{detailType},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="createUser != null and createUser != ''">create_user = #{createUser},</if>
+            <if test="updateUser != null and updateUser != ''">update_user = #{updateUser},</if>
+        </trim>
+        where detail_id = #{detailId}
+    </update>
+
+    <delete id="deleteTLedDetailByDetailId" parameterType="Long">
+        delete from t_led_detail where detail_id = #{detailId}
+    </delete>
+
+    <delete id="deleteTLedDetailByDetailIds" parameterType="String">
+        delete from t_led_detail where detail_id in
+        <foreach item="detailId" collection="array" open="(" separator="," close=")">
+            #{detailId}
+        </foreach>
+    </delete>
+</mapper>
